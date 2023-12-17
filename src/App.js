@@ -15,9 +15,13 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React Hi Wel com
         </a>
       </header>
+      
+
+
+      Welcome to SettleUp.
     </div>
   );
 }
