@@ -38,7 +38,7 @@ const Home = () => {
               color: 'white', // Text color
             }}
           >
-            <Typography variant="h3" gutterBottom sx={{
+            <Typography variant="h4" gutterBottom sx={{
               backgroundColor:'primary',
               padding:'3'
             }}>

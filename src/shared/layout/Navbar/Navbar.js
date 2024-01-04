@@ -60,7 +60,7 @@ const Navbar = () => {
             component="a"
             onClick={onNavbarMainHandler}
             sx={{
-              mr: 2,
+              mr: 18,
               display: { xs: 'none', md: 'flex' },
               fontFamily: '',
               fontWeight: 700,
