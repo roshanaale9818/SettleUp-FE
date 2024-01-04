@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import { Outlet, useLocation, useOutlet } from "react-router-dom";
+import { Navbar } from "../../shared/layout/Navbar/Navbar";
 // import { Sidebar } from "../../shared/layout/Sidebar/Sidebar";
 // import { ToastContainer } from "react-toastify";
 // import AuthContext from "../../shared/services/providers/auth.context";
@@ -12,13 +13,7 @@ const Main = () => {
     return <React.Fragment>
         <div className='site-wrapper'>
             <div className='top-wrap'>
-
-                {/* {
-
-                   
-                    <Sidebar />
-                } */}
-
+                <Navbar />
                 <div className="main-content" id="main">
                     {outlet}
                 </div>

@@ -12,11 +12,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { PAGES } from '../../../utils/menu/pages';
+import { useNavigate } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+// const pages = ['Home', 'About Us','Login/Sign Up', 'Contact'];
+const settings = ['Profile', 'Account', 'Logout'];
 
-const Navbar =  () => {
+
+const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -27,37 +30,50 @@ const Navbar =  () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (route) => {
     setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const onNavbarMainHandler = () => {
+    console.log("This should route to main home");
+  }
+  const navigate = useNavigate();
+  const onNavitemClicked = (route) =>{
+    console.log(route);
+    setAnchorElNav(null);
+    navigate(route.url);
+  }
+ 
+
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ backgroundColor: '#2E3B55' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/home"
+            onClick={onNavbarMainHandler}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: '',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              cursor: 'pointer'
             }}
           >
             ExpenseShare
           </Typography>
 
+          {/* //small screen navigation */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -67,6 +83,7 @@ const Navbar =  () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
+              {/* //bread crumb for small screen  */}
               <MenuIcon />
             </IconButton>
             <Menu
@@ -87,15 +104,15 @@ const Navbar =  () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {PAGES.map((page) => (
+                <MenuItem key={page.name} onClick={()=>{onNavitemClicked(page)}}>
+                  <Typography textAlign="center">  {page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
+          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+          {/* <Typography
             variant="h5"
             noWrap
             component="a"
@@ -112,25 +129,27 @@ const Navbar =  () => {
             }}
           >
             LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+          </Typography> */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, width: 100 }}>
+            {PAGES.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.name}
+                onClick={()=>{onNavitemClicked(page)}}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Profile">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+
               </IconButton>
             </Tooltip>
+            {/* <Button variant="outlined">Outlined</Button> */}
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -149,10 +168,13 @@ const Navbar =  () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="right">{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
+
+
+
           </Box>
         </Toolbar>
       </Container>
@@ -161,4 +183,4 @@ const Navbar =  () => {
 }
 
 
-export {Navbar};
+export { Navbar };
