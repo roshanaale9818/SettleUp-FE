@@ -14,25 +14,29 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CopyRight } from '../../shared/components/CopyRight';
 import image from '../../utils/static/images/account.jpg';
-
-// function Copyright(props) {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-//       {'Copyright © '}
-//       <Link color="inherit" href="http://roshanaalemagar.com:3000/">
-//         Expense Share
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
+import { useState,useEffect } from 'react';
+import { useLoaderData } from 'react-router-dom';
 const defaultTheme = createTheme();
+export async function loaderFunction(req,params){
+  console.log("THIS IS REQ AND PARAMS",req,params)
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+  console.log(res,"Loader is called");
+  return {data:res}
+}
 
 export default function SignIn() {
+  // it will get the closest loader function 
+  const dataLoaded = useLoaderData();
+  // we can use loader data inside all components of that component or all of its children 
+  console.log(dataLoaded);
+  // we put loader function inside the file of the component 
+
+  useEffect(()=>{
+    console.log("USE EFFECT IS CALLED");
+  }
+  ,[])
+
+  // const navigation = useNavigation();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -43,8 +47,9 @@ export default function SignIn() {
   };
 
   return (
-    
+   
     <ThemeProvider theme={defaultTheme}>
+       {/* {navigation.state==='loading' &&<p>Loading....</p>} */}
       <Grid container component="main" sx={{ height: '100vh' }}>
        
         <CssBaseline />

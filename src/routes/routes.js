@@ -2,8 +2,12 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { Main } from '../components/main/Main';
 import ErrorPage from '../shared/components/ErrorPage';
-import SignIn from '../components/signin/SignIn';
+import SignIn, { loaderFunction as SignInLoader} from '../components/signin/SignIn';
 import { Home } from '../components/home/Home';
+// const loaderHandller = async ()=>{
+
+// }
+
 const routes = createBrowserRouter(createRoutesFromElements(
     <>
     <Route path='/'
@@ -13,7 +17,7 @@ const routes = createBrowserRouter(createRoutesFromElements(
         <Route index path='/' element={<Home />} replace>
         </Route>
         
-        <Route  path='/login' element={<SignIn />} >
+        <Route  path='/login' element={<SignIn />} loader={SignInLoader} >
         </Route>
         <Route  path='/home' element={<Home />} >
         </Route>
@@ -32,33 +36,18 @@ const routes = createBrowserRouter(createRoutesFromElements(
         <Route path='/unauthorized' element={<h1 className='text-center'>You are not authorized.</h1>}>
         </Route> */}
     </Route>,
+
+    {/* this is something we can do to access the route data to its inners data for example product detail and product edit pages  */}
 {/* 
-    <Route path='/admin'
-        element={<AdminMain />}
+    <Route path=':eventId'
         errorElement={<ErrorPage />}
+        loader={SignInLoader}
     >
-        <Route index path='' element={ <ProtectedRoute component={AdminHome} requiredRole={ROLES.ADMIN} />  }>
+       <Route index  element={<SignIn />} replace>
         </Route>
-        <Route path='/admin/home' element={ <ProtectedRoute component={AdminHome} requiredRole={ROLES.ADMIN} />  }>
-        </Route>
-        <Route  path='/admin/message'   element={ <ProtectedRoute component={AdminMessage} requiredRole={ROLES.ADMIN}></ProtectedRoute>} >
-        </Route>
-        <Route path='/admin/personalinfo'element={ <ProtectedRoute component={AdminPersonalInfo} requiredRole={ROLES.ADMIN}></ProtectedRoute>}>
-        </Route>
-        <Route path='/admin/socialmedia' element={ <ProtectedRoute component={AdminSocialMedia} requiredRole={ROLES.ADMIN}></ProtectedRoute>}>
-        </Route>
-        <Route path='/admin/users' element={ <ProtectedRoute component={AdminUsers} requiredRole={ROLES.ADMIN}></ProtectedRoute>}>
-        </Route>
-        <Route path='/admin/projects' element={ <ProtectedRoute component={AdminProject} requiredRole={ROLES.ADMIN}></ProtectedRoute>}>
-        </Route>
-        <Route path='/admin/skill' element={ <ProtectedRoute component={AdminSkill} requiredRole={ROLES.ADMIN}></ProtectedRoute>} >
-        </Route>
-        <Route path='/admin/images' element={ <ProtectedRoute component={AdminImage} requiredRole={ROLES.ADMIN}></ProtectedRoute>}>
-        </Route>
-        <Route path='/admin/resume' element={ <ProtectedRoute component={AdminResume} requiredRole={ROLES.ADMIN}></ProtectedRoute>}>
-        </Route>
-        
-    </Route> */}
+    
+    </Route>, */}
+
     </>
 ))
 export { routes };
