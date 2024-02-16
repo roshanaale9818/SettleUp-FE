@@ -13,8 +13,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CopyRight } from '../../shared/components/CopyRight';
-import image from '../../utils/static/images/account.jpg';
-import { useState,useEffect } from 'react';
+import accountImg from '../../utils/static/images/account.jpg';
+import {useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 const defaultTheme = createTheme();
 export async function loaderFunction(req,params){
@@ -59,7 +59,7 @@ export default function SignIn() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: `url(${image})`,
+            backgroundImage: `url(${accountImg})`,
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],

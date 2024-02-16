@@ -26,36 +26,36 @@ const Home = () => {
           />
 
 
-<div>
-          {/* Banner Content */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              textAlign: 'center',
-              color: 'white', // Text color
-            }}
-          >
-            <Typography variant="h4" gutterBottom sx={{
-              backgroundColor:'primary',
-              padding:'3'
-            }}>
-             Less Stress When Sharing Expenses
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-            Keep track of your shared expenses and balances with housemates, trips, groups, friends, and family.
-            </Typography>
-            <Button variant="contained" color="primary" size="large" sx={{ margin: 2 }}>
-              Sign up
-            </Button>
-            <Button variant="outlined" color="primary" size="large" sx={{ margin: 2 }}>
-              Learn More
-            </Button>
+          <div>
+            {/* Banner Content */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                textAlign: 'center',
+                color: 'white', // Text color
+              }}
+            >
+              <Typography variant="h4" gutterBottom sx={{
+                backgroundColor: 'primary',
+                padding: '3'
+              }}>
+                Less Stress When Sharing Expenses
+              </Typography>
+              <Typography variant="subtitle1" gutterBottom>
+                Keep track of your shared expenses and balances with housemates, trips, groups, friends, and family.
+              </Typography>
+              <Button variant="contained" color="primary" size="large" sx={{ margin: 2 }}>
+                Sign up
+              </Button>
+              <Button variant="outlined" color="primary" size="large" sx={{ margin: 2 }}>
+                Learn More
+              </Button>
+            </div>
           </div>
-          </div>
-   
+
         </Paper>
       </Grid>
       {/* <Grid item xs={4}>
