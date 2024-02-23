@@ -1,36 +1,36 @@
 
-import { Button, Paper,Grid } from '@mui/material';
+import { Button, Paper, Grid, Box } from '@mui/material';
 import React from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router-dom';
-// import classes from './ErrorPage.module.css';
+import { Navbar } from '../layout/Navbar/Navbar';
+
 
 const ErrorPage = (props) => {
     const navigate = useNavigate();
-    const onHomeHandler = ()=>{
+    const onHomeHandler = () => {
         navigate('/home');
     }
     return <React.Fragment>
         <main>
+            <Navbar />
             <Grid container>
-                <Grid item xs={12}>
-                    <Paper
-                        elevation={2} // Set the elevation for a shadow effect (optional)
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            height: 'calc(100vw * 0.5625)', // For a 16:9 aspect ratio
-                            padding: 0, // Set padding
-                        }}
-                    >
-                        <div>
-                            <h1>Oops!! could not found page.</h1>
-                            <Button variant="outlined" onClick={onHomeHandler} startIcon={ <HomeIcon/> }>
-                            Home
+                <Grid item xs={12} sx={{
+                    justifyContent: 'center',
+                    display: 'flex',
+                    alignItems: 'center',
+                    height: '400px'
+                }}>
+                    <Box>
+                        <h1>You are looking for something that doesnot exist.</h1>
+                        <Box sx={{
+                            textAlign:'center'
+                        }}>
+                            <Button variant="outlined" onClick={onHomeHandler} startIcon={<HomeIcon />}>
+                                Back
                             </Button>
-                        </div>
-                    </Paper>
+                        </Box>
+                    </Box>
                 </Grid>
             </Grid>
 

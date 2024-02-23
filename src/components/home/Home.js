@@ -4,7 +4,7 @@ const Home = () => {
   return <React.Fragment>
     <Grid container>
       <Grid item xs={12}>
-        <Paper
+        <Paper className='main-banner-content'
           elevation={4} // Set the elevation for a shadow effect (optional)
           sx={{
             display: 'flex',
@@ -26,12 +26,11 @@ const Home = () => {
           />
 
 
-          <div>
-            {/* Banner Content */}
-            <div
+          <Grid item>
+            <div className='main-banner-content'
               style={{
                 position: 'absolute',
-                top: '50%',
+                top: 'calc(50%-84px)',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 textAlign: 'center',
@@ -54,22 +53,13 @@ const Home = () => {
                 Learn More
               </Button>
             </div>
-          </div>
+          </Grid>
 
         </Paper>
       </Grid>
-      {/* <Grid item xs={4}>
-    4
-  </Grid>
-  <Grid item xs={4}>
-   4
-  </Grid>
-  <Grid item xs={8}>
-    8
-</Grid>*/}
     </Grid>
   </React.Fragment>;
 }
 
 
-export { Home };
+export {Home}

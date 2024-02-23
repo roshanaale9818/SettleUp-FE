@@ -26,7 +26,6 @@ import { CopyRight } from '../../shared/components/CopyRight';
 //     </Typography>
 //   );
 // }
-
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
