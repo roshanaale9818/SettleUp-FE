@@ -16,6 +16,8 @@ import { CopyRight } from '../../shared/components/CopyRight';
 import accountImg from '../../utils/static/images/account.jpg';
 import {useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { authActions } from '../../store';
+import { useDispatch,useSelector } from 'react-redux';
 const defaultTheme = createTheme();
 export async function loaderFunction(req,params){
   console.log("THIS IS REQ AND PARAMS",req,params)
@@ -25,6 +27,22 @@ export async function loaderFunction(req,params){
 }
 
 export default function SignIn() {
+const dispatch = useDispatch();
+  // dispatchLoginAction(authActions.login())
+  const   isLoggedIn = useSelector(state=>state.auth.isLoggedIn);
+  const onLogoutHandler = async ()=>{
+    await dispatch(authActions.logout())
+  }
+  const loginHandler = ()=>{
+    console.log("submitting")
+    dispatch(authActions.login())
+  }
+
+
+
+
+
+
   // it will get the closest loader function 
   const dataLoaded = useLoaderData();
   // we can use loader data inside all components of that component or all of its children 
@@ -104,11 +122,11 @@ export default function SignIn() {
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-              />
-              <Button
+              /> */}
+              <Button onClick={loginHandler}
                 type="submit"
                 fullWidth
                 variant="contained"

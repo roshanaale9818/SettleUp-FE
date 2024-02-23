@@ -2,12 +2,8 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { Main } from '../components/main/Main';
 import ErrorPage from '../shared/components/ErrorPage';
-// { loaderFunction as SignInLoader}
 import SignIn from '../components/signin/SignIn';
 import { Home } from '../components/home/Home';
-// const loaderHandller = async ()=>{
-
-// }
 
 const routes = createBrowserRouter(createRoutesFromElements(
     <>
