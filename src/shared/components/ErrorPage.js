@@ -22,7 +22,7 @@ const ErrorPage = (props) => {
                     height: '400px'
                 }}>
                     <Box>
-                        <h1>You are looking for something that doesnot exist.</h1>
+                        <h1>You are looking for something that does not exist.</h1>
                         <Box sx={{
                             textAlign:'center'
                         }}>

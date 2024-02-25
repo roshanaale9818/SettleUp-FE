@@ -1,6 +1,6 @@
 import { Button, Grid, Paper, Typography } from '@mui/material';
 import * as React from 'react';
-const Home = () => {
+export default function Home() {
   return <React.Fragment>
     <Grid container>
       <Grid item xs={12}>
@@ -60,6 +60,3 @@ const Home = () => {
     </Grid>
   </React.Fragment>;
 }
-
-
-export {Home}
