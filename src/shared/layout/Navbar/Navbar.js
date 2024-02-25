@@ -73,7 +73,7 @@ const Navbar = () => {
 
 
   return (
-    <AppBar position="static" style={{ backgroundColor: '#2E3B55' }}>
+    <AppBar position="static" style={{ backgroundColor: '#2E3B55',padding:'7px' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}

@@ -1,6 +1,10 @@
-const SuspenseLoading = ()=>{
+import { Typography } from "@mui/material";
+
+const SuspenseLoading = () => {
     return <>
-        <p>Loading...</p>
+        <Typography variant="body2" color="text.secondary" align="center">
+            Loading... please wait.
+        </Typography>
     </>
 }
 export default SuspenseLoading;
